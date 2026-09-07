@@ -9,7 +9,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app.py .
-COPY vosk-model-small-hi-0.22 ./vosk-model-small-hi-0.22
+COPY languages.json .
+COPY models ./models
 
 ENV PORT=8000
 EXPOSE 8000

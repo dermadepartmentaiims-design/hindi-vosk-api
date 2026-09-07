@@ -1,0 +1,18 @@
+{
+  "hi": {
+    "name": "Hindi",
+    "path": "hi"
+  },
+  "en": {
+    "name": "Indian English",
+    "path": "en"
+  },
+  "gu": {
+    "name": "Gujarati",
+    "path": "gu"
+  },
+  "te": {
+    "name": "Telugu",
+    "path": "te"
+  }
+}

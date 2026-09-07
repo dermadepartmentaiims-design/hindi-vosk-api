@@ -3,7 +3,7 @@ from pathlib import Path
 from vosk import Model, KaldiRecognizer
 
 q = queue.Queue()
-model_path = Path(__file__).resolve().parent / "vosk-model-small-hi-0.22"
+model_path = Path(__file__).resolve().parent / "models" / "hi"
 model = Model(str(model_path))
 rec = KaldiRecognizer(model, 16000)
 

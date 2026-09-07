@@ -1,4 +1,4 @@
-# Hindi Vosk transcription API
+# Multilingual Vosk transcription API
 
 ## Run locally
 
@@ -14,15 +14,40 @@ python -m uvicorn app:app --reload
 Open <http://127.0.0.1:8000>, or call the API directly:
 
 ```bash
-curl -X POST http://127.0.0.1:8000/transcribe \
+curl -X POST "http://127.0.0.1:8000/transcribe?language=hi" \
   -F "file=@audio.wav"
 ```
 
 The response has this shape:
 
 ```json
-{"text": "नमस्ते दुनिया"}
+{"language": "hi", "text": "नमस्ते दुनिया"}
 ```
+
+## Add a language
+
+Create a folder under `models` named with a short language code. The extracted
+model files must be directly inside it, for example:
+
+```text
+models/
+├── hi/am/final.mdl
+├── hi/conf/model.conf
+└── en/am/final.mdl
+```
+
+Then add the language to `languages.json`:
+
+```json
+{
+  "hi": {"name": "Hindi", "path": "hi"},
+  "en": {"name": "Indian English", "path": "en"}
+}
+```
+
+Restart the application. `GET /languages` lists only configured models that are
+actually installed. The server keeps one model in memory at a time to fit within
+the Render free instance's memory limit.
 
 ## Deploy on Render
 
